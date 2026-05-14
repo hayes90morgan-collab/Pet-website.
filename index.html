@@ -13,6 +13,7 @@ body{
   color:#333;
 }
 
+/* HEADER */
 header{
   background:#fff;
   padding:20px;
@@ -31,9 +32,10 @@ nav a{
   margin:0 10px;
   text-decoration:none;
   color:#555;
-  font-weight:bold;
+  font-weight:600;
 }
 
+/* HERO */
 .hero{
   background:url('https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1600&auto=format&fit=crop') center/cover;
   height:70vh;
@@ -59,15 +61,16 @@ nav a{
 }
 
 .hero h2{
-  font-size:50px;
+  font-size:48px;
   margin-bottom:10px;
 }
 
 .hero p{
-  font-size:20px;
+  font-size:18px;
 }
 
-.btn{.btn{
+/* BUTTONS */
+.btn{
   background: linear-gradient(135deg, #b58b61, #d6b48d);
   color:#fff;
   padding:14px 24px;
@@ -84,7 +87,9 @@ nav a{
 .btn:hover{
   transform:translateY(-3px);
   box-shadow:0 15px 35px rgba(181,139,97,0.6);
-  }
+}
+
+/* SECTIONS */
 .section{
   padding:60px 20px;
   max-width:1100px;
@@ -97,6 +102,7 @@ nav a{
   color:#8b6b4f;
 }
 
+/* CARDS */
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -126,21 +132,35 @@ nav a{
 }
 
 .card h3{
-  margin-top:0;
+  margin:0;
   color:#8b6b4f;
 }
 
-.price{
-  font-size:20px;
+.badge{
+  display:inline-block;
+  padding:5px 12px;
+  background:#f5ebe0;
+  color:#8b6b4f;
+  font-size:12px;
+  border-radius:20px;
+  margin-top:8px;
   font-weight:bold;
+}
+
+.price{
+  font-size:22px;
+  font-weight:bold;
+  color:#8b6b4f;
   margin-top:10px;
 }
 
 .reserve{
   color:#b58b61;
   font-weight:bold;
+  font-size:14px;
 }
 
+/* FORM */
 .form-section{
   background:#fff;
   padding:40px;
@@ -178,6 +198,13 @@ nav a{
   cursor:pointer;
 }
 
+/* REVIEWS */
+.review-section{
+  padding:60px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
 .about-box{
   background:white;
   padding:30px;
@@ -186,6 +213,7 @@ nav a{
   line-height:1.8;
 }
 
+/* FOOTER */
 footer{
   background:#6d533d;
   color:#fff;
@@ -200,58 +228,60 @@ footer{
 
 <header>
 <h1>Royal Blossom Puppies</h1>
-
 <nav>
 <a href="#home">Home</a>
 <a href="#pets">Available Pets</a>
 <a href="#reserve">Reserve</a>
+<a href="#reviews">Reviews</a>
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero" id="home">
 <div>
 <h2>Tiny Paws, Endless Love</h2>
-<p>Luxury Maltese, Maltipoo & Pomeranian Puppies Raised With Love</p>
-
+<p>Luxury Maltese, Maltipoo & Pomeranian Puppies</p>
 <button class="btn">View Puppies</button>
 <button class="btn">Reserve Now</button>
 </div>
 </section>
 
-<!-- AVAILABLE PUPPIES -->
+<!-- PUPPIES -->
 <section class="section" id="pets">
-
 <h2>Available Puppies</h2>
 
 <div class="cards">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1200&auto=format&fit=crop" alt="Bella">
+<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1200&auto=format&fit=crop">
 <div class="card-content">
 <h3>Bella</h3>
-<p>Maltese • 10 Weeks Old</p>
+<span class="badge">Available</span>
+<p>Maltese • 10 Weeks</p>
 <p class="price">$1000</p>
 <p class="reserve">Reservation Fee: $250</p>
 </div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop" alt="Teddy">
+<img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop">
 <div class="card-content">
 <h3>Teddy</h3>
-<p>Maltipoo • 12 Weeks Old</p>
+<span class="badge">Available</span>
+<p>Maltipoo • 12 Weeks</p>
 <p class="price">$800</p>
 <p class="reserve">Reservation Fee: $250</p>
 </div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=1200&auto=format&fit=crop" alt="Snow">
+<img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=1200&auto=format&fit=crop">
 <div class="card-content">
 <h3>Snow</h3>
-<p>Pomeranian • 9 Weeks Old</p>
+<span class="badge">Available</span>
+<p>Pomeranian • 9 Weeks</p>
 <p class="price">$600</p>
 <p class="reserve">Reservation Fee: $250</p>
 </div>
@@ -260,63 +290,120 @@ footer{
 </div>
 </section>
 
-<!-- RESERVATION FORM -->
+<!-- FORM -->
 <section class="form-section" id="reserve">
-
 <h2>Reserve Your Puppy</h2>
 
 <form action="https://formspree.io/f/mojroeed" method="POST">
 
 <input type="text" name="name" placeholder="Full Name" required />
-
 <input type="email" name="email" placeholder="Email Address" required />
 
 <select name="puppy" required>
 <option value="">Select Puppy</option>
-<option>Bella - Maltese</option>
-<option>Teddy - Maltipoo</option>
-<option>Snow - Pomeranian</option>
+<option>Bella</option>
+<option>Teddy</option>
+<option>Snow</option>
 </select>
 
-<textarea name="message" rows="5" placeholder="Tell us a little about yourself and the puppy you're interested in..."></textarea>
+<textarea name="message" rows="5" placeholder="Tell us about yourself"></textarea>
 
-<button type="submit">Submit Reservation Request</button>
+<button type="submit">Submit Reservation</button>
 
 </form>
 </section>
 
-<!-- ABOUT -->
-<section class="section" id="about">
+<!-- REVIEWS -->
+<section class="review-section" id="reviews">
+<h2>Happy Families & Reviews</h2>
 
-<h2>About Us</h2>
+<div class="cards">
 
-<div class="about-box">
-<p>
-Royal Blossom Puppies specializes in healthy, beautiful and affectionate companion puppies raised in a loving family environment. Every puppy receives proper socialization, health care, vaccinations and attention before joining their forever home.
-</p>
-
-<p>
-We proudly offer Maltese, Maltipoo and Pomeranian puppies with luxury-level care, safe adoption support and lifetime guidance for new puppy parents.
-</p>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop">
+<div class="card-content">
+<h3>Emily R.</h3>
+<span class="badge">Verified Buyer</span>
+<p>"Our Maltese arrived healthy and full of love. Amazing experience."</p>
+</div>
 </div>
 
+<div class="card">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop">
+<div class="card-content">
+<h3>James T.</h3>
+<span class="badge">Verified Buyer</span>
+<p>"Very professional and smooth process. Highly recommended."</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=400&auto=format&fit=crop">
+<div class="card-content">
+<h3>Sophia L.</h3>
+<span class="badge">Verified Buyer</span>
+<p>"Beautiful puppy and excellent communication."</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop">
+<div class="card-content">
+<h3>Michael B.</h3>
+<span class="badge">Verified Buyer</span>
+<p>"Top-tier breeder experience. Very trustworthy."</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400&auto=format&fit=crop">
+<div class="card-content">
+<h3>Olivia K.</h3>
+<span class="badge">Verified Buyer</span>
+<p>"Our Pomeranian is healthy and adorable."</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop">
+<div class="card-content">
+<h3>Daniel P.</h3>
+<span class="badge">Verified Buyer</span>
+<p>"Very safe and professional adoption process."</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?q=80&w=400&auto=format&fit=crop">
+<div class="card-content">
+<h3>Sarah M.</h3>
+<span class="badge">Verified Buyer</span>
+<p>"We love our new puppy so much. Thank you!"</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+<h2>About Us</h2>
+<div class="about-box">
+Royal Blossom Puppies provides premium, healthy and well-raised companion puppies with lifetime support and luxury adoption experience.
+</div>
 </section>
 
 <!-- CONTACT -->
 <section class="section" id="contact">
-
 <h2>Contact</h2>
-
 <div class="about-box">
-<p><strong>Email:</strong> kimberly90josh@gmail.com</p>
-<p><strong>Backup Email:</strong> hayes90morgan@gmail.com</p>
-<p><strong>Reservation Fee:</strong> $250</p>
+Email: kimberly90josh@gmail.com<br>
+Backup: hayes90morgan@gmail.com
 </div>
-
 </section>
 
 <footer>
-<p>© 2023 Royal Blossom Puppies. All Rights Reserved.</p>
+<p>© 2023 Royal Blossom Puppies</p>
 </footer>
 
 </body>
