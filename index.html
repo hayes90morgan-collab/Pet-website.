@@ -161,6 +161,11 @@ nav a{
   border-radius:12px;
 }
 
+/* REVIEWS */
+.review-section{
+  padding:60px 20px;
+}
+
 /* MODAL */
 #modal{
   display:none;
@@ -178,6 +183,17 @@ nav a{
   max-width:500px;
   border-radius:20px;
   padding:25px;
+}
+
+/* CONTACT */
+.contact-box{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.08);
+  max-width:700px;
+  margin:auto;
+  line-height:1.8;
 }
 
 /* FOOTER */
@@ -199,6 +215,7 @@ footer{
 <a href="#pets">Puppies</a>
 <a href="#reviews">Reviews</a>
 <a href="#reserve">Reserve</a>
+<a href="#contact">Contact</a>
 </nav>
 </header>
 
@@ -223,7 +240,7 @@ footer{
 <h3>Bella</h3>
 <span class="badge">Available</span>
 <p class="price">$1000</p>
-<p class="reserve">Reservation Fee: $250</p>
+<p class="reserve">Reservation Fee: $300</p>
 <button class="btn" onclick="openModal('Bella')">Reserve Now</button>
 </div>
 </div>
@@ -255,86 +272,30 @@ footer{
 
 <!-- REVIEWS -->
 <section class="section" id="reviews">
-<h2>Happy Families</h2>
+<h2>Happy Families & Reviews</h2>
 
 <div class="cards">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop">
-<div class="card-content">
-<h3>Emily R.</h3>
-<span class="badge">Verified Buyer</span>
-<p>"Amazing experience. Our puppy is healthy and beautiful."</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop">
-<div class="card-content">
-<h3>James T.</h3>
-<span class="badge">Verified Buyer</span>
-<p>"Very professional breeder. Highly recommended."</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=400&auto=format&fit=crop">
-<div class="card-content">
-<h3>Sophia L.</h3>
-<span class="badge">Verified Buyer</span>
-<p>"Smooth process and excellent communication."</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop">
-<div class="card-content">
-<h3>Michael B.</h3>
-<span class="badge">Verified Buyer</span>
-<p>"Top quality service and trustworthy breeder."</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400&auto=format&fit=crop">
-<div class="card-content">
-<h3>Olivia K.</h3>
-<span class="badge">Verified Buyer</span>
-<p>"Our puppy is energetic and healthy."</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop">
-<div class="card-content">
-<h3>Daniel P.</h3>
-<span class="badge">Verified Buyer</span>
-<p>"Very safe and smooth adoption experience."</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?q=80&w=400&auto=format&fit=crop">
-<div class="card-content">
-<h3>Sarah M.</h3>
-<span class="badge">Verified Buyer</span>
-<p>"We love our new puppy so much!"</p>
-</div>
-</div>
-
+<!-- 7 REVIEWS -->
+<div class="card"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400"><div class="card-content"><h3>Emily R.</h3><span class="badge">Verified</span><p>"Amazing experience, very professional."</p></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400"><div class="card-content"><h3>James T.</h3><span class="badge">Verified</span><p>"Puppy arrived healthy and happy."</p></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=400"><div class="card-content"><h3>Sophia L.</h3><span class="badge">Verified</span><p>"Very trustworthy breeder."</p></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400"><div class="card-content"><h3>Michael B.</h3><span class="badge">Verified</span><p>"Excellent communication."</p></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400"><div class="card-content"><h3>Olivia K.</h3><span class="badge">Verified</span><p>"Beautiful healthy puppy."</p></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400"><div class="card-content"><h3>Daniel P.</h3><span class="badge">Verified</span><p>"Smooth adoption process."</p></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?q=80&w=400"><div class="card-content"><h3>Sarah M.</h3><span class="badge">Verified</span><p>"We love our puppy!"</p></div></div>
 </div>
 </section>
 
-<!-- RESERVATION FORM -->
+<!-- RESERVE FORM -->
 <section class="form-section" id="reserve">
 <h2>Reserve Your Puppy</h2>
 
 <form action="https://formspree.io/f/mojroeed" method="POST">
+
 <input type="text" name="name" placeholder="Full Name" required />
 <input type="email" name="email" placeholder="Email Address" required />
 
-<select name="puppy" required>
-<option value="">Select Puppy</option>
+<select name="puppy">
 <option>Bella</option>
 <option>Teddy</option>
 <option>Snow</option>
@@ -343,7 +304,20 @@ footer{
 <textarea name="message" rows="5" placeholder="Message"></textarea>
 
 <button type="submit">Submit Reservation</button>
+
 </form>
+</section>
+
+<!-- CONTACT (FIXED FULL SECTION) -->
+<section class="section" id="contact">
+<h2>Contact Us</h2>
+
+<div class="contact-box">
+<p><b>Email:</b> kimberly90josh@gmail.com</p>
+<p><b>Backup:</b> hayes90morgan@gmail.com</p>
+<p><b>Response Time:</b> Within 24 hours</p>
+<p>We are here to help you choose the perfect puppy and guide you through the adoption process.</p>
+</div>
 </section>
 
 <!-- MODAL -->
@@ -356,12 +330,11 @@ footer{
     <input placeholder="Full Name" style="width:100%;padding:12px;margin:10px 0;border-radius:10px;border:1px solid #ddd;">
     <input placeholder="Email" style="width:100%;padding:12px;margin:10px 0;border-radius:10px;border:1px solid #ddd;">
 
-    <button class="btn">Proceed to Checkout</button>
+    <button class="btn">Proceed</button>
     <button onclick="closeModal()" style="width:100%;margin-top:10px;">Cancel</button>
   </div>
 </div>
 
-<!-- SCRIPT -->
 <script>
 function openModal(name){
   document.getElementById("modal").style.display="flex";
