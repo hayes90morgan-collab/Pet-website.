@@ -3,29 +3,32 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Royal Blossom Puppies</title>
+<title>Royal Blossom Puppies | Premium Pet Boutique</title>
 
 <style>
 body{
   margin:0;
   font-family:Arial, sans-serif;
-  background:#fdfaf6;
+  background:#faf6f1;
   color:#333;
 }
 
 /* HEADER */
 header{
   background:#fff;
-  padding:20px;
+  padding:18px 25px;
   position:sticky;
   top:0;
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
   z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
-h1{
-  margin:0;
+header h1{
   color:#8b6b4f;
+  font-size:22px;
 }
 
 nav a{
@@ -37,133 +40,124 @@ nav a{
 
 /* HERO */
 .hero{
+  height:80vh;
   background:url('https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1600&auto=format&fit=crop') center/cover;
-  height:70vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  color:white;
   text-align:center;
   position:relative;
+  color:white;
 }
 
 .hero::after{
-  content:'';
+  content:"";
   position:absolute;
   inset:0;
   background:rgba(0,0,0,0.45);
 }
 
-.hero div{
+.hero-content{
   position:relative;
-  z-index:1;
+  z-index:2;
 }
 
 .hero h2{
-  font-size:48px;
-  margin-bottom:10px;
+  font-size:50px;
+  margin:0;
 }
 
-/* BUTTONS */
+.hero p{
+  font-size:18px;
+}
+
+/* BUTTON */
 .btn{
-  background: linear-gradient(135deg, #b58b61, #d6b48d);
-  color:#fff;
-  padding:14px 24px;
+  background:linear-gradient(135deg,#b58b61,#d6b48d);
+  color:white;
+  padding:12px 22px;
   border:none;
   border-radius:30px;
-  margin:5px;
   cursor:pointer;
-  font-size:16px;
   font-weight:bold;
-  box-shadow:0 10px 25px rgba(181,139,97,0.4);
-  transition:0.3s;
+  margin-top:15px;
 }
 
-.btn:hover{
-  transform:translateY(-3px);
-}
-
-/* SECTIONS */
+/* SECTION */
 .section{
-  padding:60px 20px;
+  padding:70px 20px;
   max-width:1100px;
   margin:auto;
 }
 
 .section h2{
   text-align:center;
-  margin-bottom:40px;
   color:#8b6b4f;
+  margin-bottom:40px;
 }
 
-/* CARDS */
-.cards{
+/* GRID */
+.grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
+  gap:20px;
 }
 
+/* CARD */
 .card{
-  background:#fff;
+  background:white;
   border-radius:20px;
   overflow:hidden;
-  box-shadow:0 5px 20px rgba(0,0,0,0.08);
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 
 .card img{
   width:100%;
-  height:240px;
+  height:230px;
   object-fit:cover;
 }
 
 .card-content{
-  padding:20px;
-}
-
-.badge{
-  display:inline-block;
-  padding:5px 12px;
-  background:#f5ebe0;
-  color:#8b6b4f;
-  font-size:12px;
-  border-radius:20px;
-  font-weight:bold;
+  padding:15px;
 }
 
 .price{
-  font-size:22px;
-  font-weight:bold;
   color:#8b6b4f;
-}
-
-.reserve{
-  color:#b58b61;
   font-weight:bold;
 }
 
-/* FORM */
-.form-section{
-  background:#fff;
-  padding:40px;
-  margin:50px auto;
-  max-width:650px;
-  border-radius:25px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
-}
-
-.form-section input,
-.form-section select,
-.form-section textarea{
+/* GALLERY */
+.gallery img{
   width:100%;
-  padding:14px;
-  margin:10px 0;
-  border:1px solid #ddd;
-  border-radius:12px;
+  border-radius:15px;
+  height:180px;
+  object-fit:cover;
 }
 
 /* REVIEWS */
-.review-section{
-  padding:60px 20px;
+.review-img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:15px;
+}
+
+/* CONTACT */
+.contact{
+  background:#fff;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.08);
+  max-width:700px;
+  margin:auto;
+}
+
+input, textarea{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border:1px solid #ddd;
+  border-radius:10px;
 }
 
 /* MODAL */
@@ -172,36 +166,23 @@ nav a{
   position:fixed;
   inset:0;
   background:rgba(0,0,0,0.6);
-  z-index:2000;
   align-items:center;
   justify-content:center;
 }
 
 .modal-box{
   background:white;
-  width:90%;
-  max-width:500px;
-  border-radius:20px;
   padding:25px;
-}
-
-/* CONTACT */
-.contact-box{
-  background:white;
-  padding:30px;
   border-radius:20px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.08);
-  max-width:700px;
-  margin:auto;
-  line-height:1.8;
+  width:90%;
+  max-width:450px;
 }
 
-/* FOOTER */
 footer{
   background:#6d533d;
-  color:#fff;
+  color:white;
   text-align:center;
-  padding:30px;
+  padding:25px;
 }
 </style>
 </head>
@@ -212,141 +193,178 @@ footer{
 <h1>Royal Blossom Puppies</h1>
 <nav>
 <a href="#home">Home</a>
-<a href="#pets">Puppies</a>
+<a href="#puppies">Puppies</a>
+<a href="#gallery">Gallery</a>
 <a href="#reviews">Reviews</a>
-<a href="#reserve">Reserve</a>
 <a href="#contact">Contact</a>
 </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero" id="home">
-<div>
-<h2>Tiny Paws, Endless Love</h2>
-<p>Luxury Maltese, Maltipoo & Pomeranian Puppies</p>
+<div class="hero-content">
+<h2>Luxury Puppies With Love</h2>
+<p>Maltese • Maltipoo • Pomeranian</p>
 <button class="btn">View Puppies</button>
 </div>
 </section>
 
 <!-- PUPPIES -->
-<section class="section" id="pets">
+<section class="section" id="puppies">
 <h2>Available Puppies</h2>
 
-<div class="cards">
+<div class="grid">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=1200&auto=format&fit=crop">
 <div class="card-content">
-<h3>Bella</h3>
-<span class="badge">Available</span>
+<h3>Maltese Bella</h3>
 <p class="price">$1000</p>
-<p class="reserve">Reservation Fee: $300</p>
-<button class="btn" onclick="openModal('Bella')">Reserve Now</button>
+<p>Reservation Fee: $250</p>
+<button class="btn" onclick="openModal('Bella')">Reserve</button>
 </div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1200&auto=format&fit=crop">
 <div class="card-content">
-<h3>Teddy</h3>
-<span class="badge">Available</span>
+<h3>Maltipoo Teddy</h3>
 <p class="price">$800</p>
-<p class="reserve">Reservation Fee: $250</p>
-<button class="btn" onclick="openModal('Teddy')">Reserve Now</button>
+<p>Reservation Fee: $250</p>
+<button class="btn" onclick="openModal('Teddy')">Reserve</button>
 </div>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=1200&auto=format&fit=crop">
 <div class="card-content">
-<h3>Snow</h3>
-<span class="badge">Available</span>
+<h3>Pomeranian Snow</h3>
 <p class="price">$600</p>
-<p class="reserve">Reservation Fee: $250</p>
-<button class="btn" onclick="openModal('Snow')">Reserve Now</button>
+<p>Reservation Fee: $250</p>
+<button class="btn" onclick="openModal('Snow')">Reserve</button>
 </div>
 </div>
 
+</div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="gallery">
+<h2>Gallery</h2>
+
+<div class="grid gallery">
+<img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=1200&auto=format&fit=crop">
 </div>
 </section>
 
 <!-- REVIEWS -->
 <section class="section" id="reviews">
-<h2>Happy Families & Reviews</h2>
+<h2>Happy Families</h2>
 
-<div class="cards">
-<!-- 7 REVIEWS -->
-<div class="card"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400"><div class="card-content"><h3>Emily R.</h3><span class="badge">Verified</span><p>"Amazing experience, very professional."</p></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400"><div class="card-content"><h3>James T.</h3><span class="badge">Verified</span><p>"Puppy arrived healthy and happy."</p></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=400"><div class="card-content"><h3>Sophia L.</h3><span class="badge">Verified</span><p>"Very trustworthy breeder."</p></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400"><div class="card-content"><h3>Michael B.</h3><span class="badge">Verified</span><p>"Excellent communication."</p></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400"><div class="card-content"><h3>Olivia K.</h3><span class="badge">Verified</span><p>"Beautiful healthy puppy."</p></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400"><div class="card-content"><h3>Daniel P.</h3><span class="badge">Verified</span><p>"Smooth adoption process."</p></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?q=80&w=400"><div class="card-content"><h3>Sarah M.</h3><span class="badge">Verified</span><p>"We love our puppy!"</p></div></div>
+<div class="grid">
+
+<div class="card">
+<img class="review-img" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Emily R. (New York)</h3>
+<p>"Our Maltipoo arrived healthy and happy. The process felt very professional and safe."</p>
+</div>
+</div>
+
+<div class="card">
+<img class="review-img" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>James T. (California)</h3>
+<p>"Everything was smooth and transparent. Our puppy is perfect."</p>
+</div>
+</div>
+
+<div class="card">
+<img class="review-img" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Sophia L. (Texas)</h3>
+<p>"Great communication and beautiful puppy. Highly recommended."</p>
+</div>
+</div>
+
+<div class="card">
+<img class="review-img" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Michael B. (Florida)</h3>
+<p>"Very professional breeder. Puppy arrived in perfect condition."</p>
+</div>
+</div>
+
+<div class="card">
+<img class="review-img" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Olivia K. (Chicago)</h3>
+<p>"Our family is in love with our new puppy."</p>
+</div>
+</div>
+
+<div class="card">
+<img class="review-img" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Daniel P. (Seattle)</h3>
+<p>"Very smooth adoption experience from start to finish."</p>
+</div>
+</div>
+
+<div class="card">
+<img class="review-img" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Sarah M. (Miami)</h3>
+<p>"Everything exceeded expectations. Highly trusted service."</p>
+</div>
+</div>
+
 </div>
 </section>
 
-<!-- RESERVE FORM -->
-<section class="form-section" id="reserve">
-<h2>Reserve Your Puppy</h2>
-
-<form action="https://formspree.io/f/mojroeed" method="POST">
-
-<input type="text" name="name" placeholder="Full Name" required />
-<input type="email" name="email" placeholder="Email Address" required />
-
-<select name="puppy">
-<option>Bella</option>
-<option>Teddy</option>
-<option>Snow</option>
-</select>
-
-<textarea name="message" rows="5" placeholder="Message"></textarea>
-
-<button type="submit">Submit Reservation</button>
-
-</form>
-</section>
-
-<!-- CONTACT (FIXED FULL SECTION) -->
+<!-- CONTACT -->
 <section class="section" id="contact">
 <h2>Contact Us</h2>
 
-<div class="contact-box">
-<p><b>Email:</b> kimberly90josh@gmail.com</p>
-<p><b>Backup:</b> hayes90morgan@gmail.com</p>
-<p><b>Response Time:</b> Within 24 hours</p>
-<p>We are here to help you choose the perfect puppy and guide you through the adoption process.</p>
+<div class="contact">
+<form>
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email" required>
+<textarea rows="5" placeholder="Message"></textarea>
+<button class="btn">Send Message</button>
+</form>
 </div>
 </section>
 
 <!-- MODAL -->
 <div id="modal">
-  <div class="modal-box">
-    <h2 style="color:#8b6b4f;">Reserve Puppy</h2>
-    <p id="selected"></p>
-    <p><b>Reservation Fee: $250</b></p>
+<div class="modal-box">
+<h3>Reserve Puppy</h3>
+<p id="selected"></p>
+<p><b>Reservation Fee: $250</b></p>
 
-    <input placeholder="Full Name" style="width:100%;padding:12px;margin:10px 0;border-radius:10px;border:1px solid #ddd;">
-    <input placeholder="Email" style="width:100%;padding:12px;margin:10px 0;border-radius:10px;border:1px solid #ddd;">
+<input placeholder="Full Name">
+<input placeholder="Email">
 
-    <button class="btn">Proceed</button>
-    <button onclick="closeModal()" style="width:100%;margin-top:10px;">Cancel</button>
-  </div>
+<button class="btn">Proceed to Checkout</button>
+<button onclick="closeModal()" class="btn">Close</button>
+</div>
 </div>
 
 <script>
 function openModal(name){
-  document.getElementById("modal").style.display="flex";
-  document.getElementById("selected").innerText="Selected Puppy: "+name;
+document.getElementById("modal").style.display="flex";
+document.getElementById("selected").innerText="Selected Puppy: "+name;
 }
 
 function closeModal(){
-  document.getElementById("modal").style.display="none";
+document.getElementById("modal").style.display="none";
 }
 </script>
 
-<!-- FOOTER -->
 <footer>
 <p>© 2023 Royal Blossom Puppies</p>
 </footer>
