@@ -67,17 +67,24 @@ nav a{
   font-size:20px;
 }
 
-.btn{
-  background:#b58b61;
+.btn{.btn{
+  background: linear-gradient(135deg, #b58b61, #d6b48d);
   color:#fff;
-  padding:12px 22px;
+  padding:14px 24px;
   border:none;
-  border-radius:25px;
+  border-radius:30px;
   margin:5px;
   cursor:pointer;
   font-size:16px;
+  font-weight:bold;
+  box-shadow:0 10px 25px rgba(181,139,97,0.4);
+  transition:all 0.3s ease;
 }
 
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 35px rgba(181,139,97,0.6);
+  }
 .section{
   padding:60px 20px;
   max-width:1100px;
