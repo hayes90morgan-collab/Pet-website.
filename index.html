@@ -6,44 +6,185 @@
 <title>Royal Blossom Puppies</title>
 
 <style>
-body{margin:0;font-family:Arial, sans-serif;background:#fdfaf6;color:#333}
-header{background:#fff;padding:20px;position:sticky;top:0;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
-h1{margin:0;color:#8b6b4f}
-nav a{margin:0 10px;text-decoration:none;color:#555}
-.hero{background:url('https://images.unsplash.com/photo-1517423440428-a5a00ad493e8') center/cover;height:70vh;display:flex;align-items:center;justify-content:center;color:white;text-align:center;position:relative}
-.hero::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.4)}
-.hero div{position:relative;z-index:1}
-.btn{background:#b58b61;color:#fff;padding:12px 20px;border:none;border-radius:25px;margin:5px}
-.section{padding:50px 20px;max-width:1000px;margin:auto}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
-.card{background:#fff;border-radius:20px;padding:15px;box-shadow:0 5px 15px rgba(0,0,0,0.08)}
-footer{background:#6d533d;color:#fff;text-align:center;padding:20px;margin-top:40px}
-
-.form-section{
-background:#fff;
-padding:40px;
-margin:40px auto;
-max-width:600px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#fdfaf6;
+  color:#333;
 }
 
-.form-section input, .form-section select{
-width:100%;
-padding:12px;
-margin:10px 0;
-border:1px solid #ddd;
-border-radius:10px;
+header{
+  background:#fff;
+  padding:20px;
+  position:sticky;
+  top:0;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+  z-index:1000;
+}
+
+h1{
+  margin:0;
+  color:#8b6b4f;
+}
+
+nav a{
+  margin:0 10px;
+  text-decoration:none;
+  color:#555;
+  font-weight:bold;
+}
+
+.hero{
+  background:url('https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1600&auto=format&fit=crop') center/cover;
+  height:70vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  text-align:center;
+  position:relative;
+}
+
+.hero::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+}
+
+.hero div{
+  position:relative;
+  z-index:1;
+  padding:20px;
+}
+
+.hero h2{
+  font-size:50px;
+  margin-bottom:10px;
+}
+
+.hero p{
+  font-size:20px;
+}
+
+.btn{
+  background:#b58b61;
+  color:#fff;
+  padding:12px 22px;
+  border:none;
+  border-radius:25px;
+  margin:5px;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.section{
+  padding:60px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.section h2{
+  text-align:center;
+  margin-bottom:40px;
+  color:#8b6b4f;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:20px;
+}
+
+.card h3{
+  margin-top:0;
+  color:#8b6b4f;
+}
+
+.price{
+  font-size:20px;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+.reserve{
+  color:#b58b61;
+  font-weight:bold;
+}
+
+.form-section{
+  background:#fff;
+  padding:40px;
+  margin:50px auto;
+  max-width:650px;
+  border-radius:25px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.form-section h2{
+  text-align:center;
+  color:#8b6b4f;
+  margin-bottom:25px;
+}
+
+.form-section input,
+.form-section select,
+.form-section textarea{
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  border:1px solid #ddd;
+  border-radius:12px;
+  font-size:15px;
 }
 
 .form-section button{
-width:100%;
-padding:12px;
-background:#b58b61;
-color:white;
-border:none;
-border-radius:25px;
-cursor:pointer;
+  width:100%;
+  padding:14px;
+  background:#b58b61;
+  color:white;
+  border:none;
+  border-radius:25px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.about-box{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.06);
+  line-height:1.8;
+}
+
+footer{
+  background:#6d533d;
+  color:#fff;
+  text-align:center;
+  padding:30px;
+  margin-top:50px;
 }
 </style>
 </head>
@@ -52,9 +193,11 @@ cursor:pointer;
 
 <header>
 <h1>Royal Blossom Puppies</h1>
+
 <nav>
 <a href="#home">Home</a>
 <a href="#pets">Available Pets</a>
+<a href="#reserve">Reserve</a>
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -63,75 +206,110 @@ cursor:pointer;
 <section class="hero" id="home">
 <div>
 <h2>Tiny Paws, Endless Love</h2>
-<p>Luxury Maltese, Maltipoo & Pomeranian Puppies</p>
+<p>Luxury Maltese, Maltipoo & Pomeranian Puppies Raised With Love</p>
+
 <button class="btn">View Puppies</button>
-<button class="btn">Adopt Now</button>
+<button class="btn">Reserve Now</button>
 </div>
 </section>
 
-<!-- PUPPIES -->
+<!-- AVAILABLE PUPPIES -->
 <section class="section" id="pets">
+
 <h2>Available Puppies</h2>
 
 <div class="cards">
 
 <div class="card">
+<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1200&auto=format&fit=crop" alt="Bella">
+<div class="card-content">
 <h3>Bella</h3>
-<p>Maltese - 10 weeks</p>
-<p><strong>Price: $1000</strong></p>
-<p><strong>Reservation Fee: $250</strong></p>
+<p>Maltese • 10 Weeks Old</p>
+<p class="price">$1000</p>
+<p class="reserve">Reservation Fee: $250</p>
+</div>
 </div>
 
 <div class="card">
+<img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop" alt="Teddy">
+<div class="card-content">
 <h3>Teddy</h3>
-<p>Maltipoo - 12 weeks</p>
-<p><strong>Price: $800</strong></p>
-<p><strong>Reservation Fee: $250</strong></p>
+<p>Maltipoo • 12 Weeks Old</p>
+<p class="price">$800</p>
+<p class="reserve">Reservation Fee: $250</p>
+</div>
 </div>
 
 <div class="card">
+<img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=1200&auto=format&fit=crop" alt="Snow">
+<div class="card-content">
 <h3>Snow</h3>
-<p>Pomeranian - 9 weeks</p>
-<p><strong>Price: $700</strong></p>
-<p><strong>Reservation Fee: $250</strong></p>
+<p>Pomeranian • 9 Weeks Old</p>
+<p class="price">$600</p>
+<p class="reserve">Reservation Fee: $250</p>
+</div>
 </div>
 
 </div>
 </section>
 
 <!-- RESERVATION FORM -->
-<section class="form-section">
+<section class="form-section" id="reserve">
+
 <h2>Reserve Your Puppy</h2>
 
-<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<form action="https://formspree.io/f/mojroeed" method="POST">
 
 <input type="text" name="name" placeholder="Full Name" required />
+
 <input type="email" name="email" placeholder="Email Address" required />
 
 <select name="puppy" required>
 <option value="">Select Puppy</option>
-<option>Bella</option>
-<option>Teddy</option>
-<option>Snow</option>
+<option>Bella - Maltese</option>
+<option>Teddy - Maltipoo</option>
+<option>Snow - Pomeranian</option>
 </select>
 
-<button type="submit">Submit Reservation</button>
+<textarea name="message" rows="5" placeholder="Tell us a little about yourself and the puppy you're interested in..."></textarea>
+
+<button type="submit">Submit Reservation Request</button>
 
 </form>
 </section>
 
+<!-- ABOUT -->
 <section class="section" id="about">
+
 <h2>About Us</h2>
-<p>Royal Blossom Puppies offers healthy, loved, and well-cared-for companion puppies raised in a warm family environment.</p>
+
+<div class="about-box">
+<p>
+Royal Blossom Puppies specializes in healthy, beautiful and affectionate companion puppies raised in a loving family environment. Every puppy receives proper socialization, health care, vaccinations and attention before joining their forever home.
+</p>
+
+<p>
+We proudly offer Maltese, Maltipoo and Pomeranian puppies with luxury-level care, safe adoption support and lifetime guidance for new puppy parents.
+</p>
+</div>
+
 </section>
 
+<!-- CONTACT -->
 <section class="section" id="contact">
+
 <h2>Contact</h2>
-<p>Email: kimberly90josh@gmail.com or hayes90morgan@gmail.com</p>
+
+<div class="about-box">
+<p><strong>Email:</strong> kimberly90josh@gmail.com</p>
+<p><strong>Backup Email:</strong> hayes90morgan@gmail.com</p>
+<p><strong>Reservation Fee:</strong> $250</p>
+</div>
+
 </section>
 
 <footer>
-<p>© 2023 Royal Blossom Puppies</p>
+<p>© 2023 Royal Blossom Puppies. All Rights Reserved.</p>
 </footer>
 
 </body>
