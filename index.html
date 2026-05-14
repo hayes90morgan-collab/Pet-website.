@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Royal Blossom Puppies</title>
+<style>
+body{margin:0;font-family:Arial, sans-serif;background:#fdfaf6;color:#333}
+header{background:#fff;padding:20px;position:sticky;top:0;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+h1{margin:0;color:#8b6b4f}
+nav a{margin:0 10px;text-decoration:none;color:#555}
+.hero{background:url('https://images.unsplash.com/photo-1517423440428-a5a00ad493e8') center/cover;height:70vh;display:flex;align-items:center;justify-content:center;color:white;text-align:center;position:relative}
+.hero::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.4)}
+.hero div{position:relative;z-index:1}
+.btn{background:#b58b61;color:#fff;padding:12px 20px;border:none;border-radius:25px;margin:5px}
+.section{padding:50px 20px;max-width:1000px;margin:auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.card{background:#fff;border-radius:20px;padding:15px;box-shadow:0 5px 15px rgba(0,0,0,0.08)}
+footer{background:#6d533d;color:#fff;text-align:center;padding:20px;margin-top:40px}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Royal Blossom Puppies</h1>
+<nav>
+<a href="#home">Home</a>
+<a href="#pets">Available Pets</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<div>
+<h2>Tiny Paws, Endless Love</h2>
+<p>Luxury Maltese, Maltipoo & Pomeranian Puppies</p>
+<button class="btn">View Puppies</button>
+<button class="btn">Adopt Now</button>
+</div>
+</section>
+
+<section class="section" id="pets">
+<h2>Available Puppies</h2>
+<div class="cards">
+<div class="card"><h3>Bella</h3><p>Maltese - 10 weeks</p></div>
+<div class="card"><h3>Teddy</h3><p>Maltipoo - 12 weeks</p></div>
+<div class="card"><h3>Snow</h3><p>Pomeranian - 9 weeks</p></div>
+</div>
+</section>
+
+<section class="section" id="about">
+<h2>About Us</h2>
+<p>Royal Blossom Puppies offers healthy, loved, and well-cared-for companion puppies raised in a warm family environment.</p>
+</section>
+
+<section class="section" id="contact">
+<h2>Contact</h2>
+<p>Email: kimberly90josh@gmail.com or hayes90morgan@gmail.com</p>
+</section>
+
+<footer>
+<p>© 2026 Royal Blossom Puppies</p>
+</footer>
+
+</body>
+</html>
