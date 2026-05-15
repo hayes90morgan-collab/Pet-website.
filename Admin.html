@@ -4,162 +4,101 @@
 <meta charset="UTF-8">
 <title>Admin Dashboard</title>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <style>
-body{
-font-family:Arial;
-padding:30px;
-background:#faf6f1;
-}
+body{font-family:Arial;margin:0;background:#f4f4f4;}
 
-h1{
-color:#8b6b4f;
+header{
+background:white;
+padding:20px;
+text-align:center;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
 }
 
 .card{
 background:white;
-padding:20px;
-margin:15px 0;
-border-radius:15px;
+margin:15px;
+padding:15px;
+border-radius:12px;
 box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 
 button{
-background:#8b6b4f;
+background:crimson;
 color:white;
 border:none;
 padding:8px 12px;
 border-radius:8px;
 cursor:pointer;
-margin-top:10px;
-}
-
-button:hover{
-background:#6e533d;
 }
 
 #loginBox{
-max-width:300px;
-margin:auto;
-background:white;
-padding:20px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-input{
-width:100%;
-padding:10px;
-margin-top:10px;
-border-radius:8px;
-border:1px solid #ddd;
+text-align:center;
+margin-top:100px;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Reservations Dashboard</h1>
-
-<!-- LOGIN SECTION -->
 <div id="loginBox">
-<h3>Admin Login</h3>
-<input type="password" id="password" placeholder="Enter password">
+<h2>Admin Login</h2>
+<input id="user" placeholder="Username"><br><br>
+<input id="pass" type="password" placeholder="Password"><br><br>
 <button onclick="login()">Login</button>
-<p id="msg"></p>
 </div>
 
-<!-- DASHBOARD -->
 <div id="dashboard" style="display:none;">
-<div id="data"></div>
+<header>
+<h1>🐶 Adoption Requests</h1>
+</header>
+
+<div id="stats"></div>
+<div id="list"></div>
 </div>
 
 <script>
+const ADMIN_USER="admin";
+const ADMIN_PASS="12345";
 
-// Supabase
-const supabaseUrl = "YOUR_SUPABASE_URL";
-const supabaseKey = "YOUR_SUPABASE_KEY";
-
-const client = supabase.createClient(supabaseUrl, supabaseKey);
-
-// SIMPLE PASSWORD (change this!)
-const ADMIN_PASSWORD = "12345";
-
-// LOGIN FUNCTION
 function login(){
-const pass = document.getElementById("password").value;
+const u=document.getElementById("user").value;
+const p=document.getElementById("pass").value;
 
-if(pass === ADMIN_PASSWORD){
-document.getElementById("loginBox").style.display = "none";
-document.getElementById("dashboard").style.display = "block";
-loadReservations();
+if(u===ADMIN_USER && p===ADMIN_PASS){
+document.getElementById("loginBox").style.display="none";
+document.getElementById("dashboard").style.display="block";
+load();
 }else{
-document.getElementById("msg").innerText = "Wrong password!";
+alert("Wrong credentials");
 }
 }
 
-// LOAD DATA
-async function loadReservations(){
+async function load(){
+const res=await fetch("/api/adoption");
+const data=await res.json();
 
-document.getElementById("data").innerHTML =
-"<p>Loading reservations...</p>";
+document.getElementById("stats").innerHTML=
+`<div class="card"><h3>Total Requests: ${data.length}</h3></div>`;
 
-const { data, error } = await client
-.from("reservations")
-.select("*")
-.order("id", { ascending: false });
+const list=document.getElementById("list");
+list.innerHTML="";
 
-if(error){
-document.getElementById("data").innerHTML =
-"<p style='color:red;'>Error loading data</p>";
-return;
-}
-
-if(!data || data.length === 0){
-document.getElementById("data").innerHTML =
-"<p>No reservations yet.</p>";
-return;
-}
-
-document.getElementById("data").innerHTML =
-data.map(r => `
-
+data.forEach(item=>{
+list.innerHTML+=`
 <div class="card">
-
-<h3>${r.name || "No name"}</h3>
-
-<p><b>Email:</b> ${r.email || "N/A"}</p>
-<p><b>Puppy:</b> ${r.puppy || "N/A"}</p>
-<p><b>Message:</b> ${r.message || "N/A"}</p>
-
-<button onclick="deleteReservation('${r.id}')">
-Delete
-</button>
-
+<p><b>Name:</b> ${item.name}</p>
+<p><b>Email:</b> ${item.email}</p>
+<p><b>Puppy:</b> ${item.puppy}</p>
+<button onclick="remove('${item.id}')">Delete</button>
 </div>
-
-`).join("");
+`;
+});
 }
 
-// DELETE FUNCTION
-async function deleteReservation(id){
-
-if(!confirm("Are you sure you want to delete this?")) return;
-
-const { error } = await client
-.from("reservations")
-.delete()
-.eq("id", id);
-
-if(error){
-alert("Error deleting reservation");
-return;
+async function remove(id){
+await fetch("/api/adoption?id="+id,{method:"DELETE"});
+load();
 }
-
-loadReservations();
-}
-
 </script>
 
 </body>
