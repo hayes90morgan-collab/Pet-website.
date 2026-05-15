@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+body{
+font-family:Arial;
+padding:30px;
+background:#faf6f1;
+}
+
+h1{
+color:#8b6b4f;
+}
+
+.card{
+background:white;
+padding:20px;
+margin:15px 0;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+button{
+background:#8b6b4f;
+color:white;
+border:none;
+padding:8px 12px;
+border-radius:8px;
+cursor:pointer;
+margin-top:10px;
+}
+
+button:hover{
+background:#6e533d;
+}
+
+#loginBox{
+max-width:300px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:8px;
+border:1px solid #ddd;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Reservations Dashboard</h1>
+
+<!-- LOGIN SECTION -->
+<div id="loginBox">
+<h3>Admin Login</h3>
+<input type="password" id="password" placeholder="Enter password">
+<button onclick="login()">Login</button>
+<p id="msg"></p>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" style="display:none;">
+<div id="data"></div>
+</div>
+
+<script>
+
+// Supabase
+const supabaseUrl = "YOUR_SUPABASE_URL";
+const supabaseKey = "YOUR_SUPABASE_KEY";
+
+const client = supabase.createClient(supabaseUrl, supabaseKey);
+
+// SIMPLE PASSWORD (change this!)
+const ADMIN_PASSWORD = "12345";
+
+// LOGIN FUNCTION
+function login(){
+const pass = document.getElementById("password").value;
+
+if(pass === ADMIN_PASSWORD){
+document.getElementById("loginBox").style.display = "none";
+document.getElementById("dashboard").style.display = "block";
+loadReservations();
+}else{
+document.getElementById("msg").innerText = "Wrong password!";
+}
+}
+
+// LOAD DATA
+async function loadReservations(){
+
+document.getElementById("data").innerHTML =
+"<p>Loading reservations...</p>";
+
+const { data, error } = await client
+.from("reservations")
+.select("*")
+.order("id", { ascending: false });
+
+if(error){
+document.getElementById("data").innerHTML =
+"<p style='color:red;'>Error loading data</p>";
+return;
+}
+
+if(!data || data.length === 0){
+document.getElementById("data").innerHTML =
+"<p>No reservations yet.</p>";
+return;
+}
+
+document.getElementById("data").innerHTML =
+data.map(r => `
+
+<div class="card">
+
+<h3>${r.name || "No name"}</h3>
+
+<p><b>Email:</b> ${r.email || "N/A"}</p>
+<p><b>Puppy:</b> ${r.puppy || "N/A"}</p>
+<p><b>Message:</b> ${r.message || "N/A"}</p>
+
+<button onclick="deleteReservation('${r.id}')">
+Delete
+</button>
+
+</div>
+
+`).join("");
+}
+
+// DELETE FUNCTION
+async function deleteReservation(id){
+
+if(!confirm("Are you sure you want to delete this?")) return;
+
+const { error } = await client
+.from("reservations")
+.delete()
+.eq("id", id);
+
+if(error){
+alert("Error deleting reservation");
+return;
+}
+
+loadReservations();
+}
+
+</script>
+
+</body>
+</html>
