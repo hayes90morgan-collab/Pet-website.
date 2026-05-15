@@ -5,185 +5,206 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Royal Blossom Puppies | Premium Pet Boutique</title>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <style>
+
 body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#faf6f1;
-  color:#333;
+margin:0;
+font-family:Arial,sans-serif;
+background:#faf6f1;
+color:#333;
 }
 
 /* HEADER */
+
 header{
-  background:#fff;
-  padding:18px 25px;
-  position:sticky;
-  top:0;
-  z-index:1000;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+background:#fff;
+padding:15px 25px;
+position:sticky;
+top:0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+z-index:999;
 }
 
 header h1{
-  color:#8b6b4f;
-  font-size:22px;
+font-size:24px;
+color:#8b6b4f;
 }
 
 nav a{
-  margin:0 10px;
-  text-decoration:none;
-  color:#555;
-  font-weight:600;
+margin:0 10px;
+text-decoration:none;
+color:#555;
+font-weight:bold;
 }
 
 /* HERO */
+
 .hero{
-  height:80vh;
-  background:url('https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1600&auto=format&fit=crop') center/cover;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-  color:white;
+height:80vh;
+background:url('https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1600&auto=format&fit=crop') center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+color:white;
 }
 
 .hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.45);
+content:'';
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.45);
 }
 
 .hero-content{
-  position:relative;
-  z-index:2;
+position:relative;
+z-index:2;
 }
 
 .hero h2{
-  font-size:50px;
-  margin:0;
+font-size:55px;
+margin:0;
 }
 
 .hero p{
-  font-size:18px;
+font-size:20px;
 }
 
-/* BUTTON */
 .btn{
-  background:linear-gradient(135deg,#b58b61,#d6b48d);
-  color:white;
-  padding:12px 22px;
-  border:none;
-  border-radius:30px;
-  cursor:pointer;
-  font-weight:bold;
-  margin-top:15px;
+background:linear-gradient(135deg,#1C2A44,#d6b48d);
+border:none;
+padding:14px 24px;
+border-radius:30px;
+color:white;
+font-weight:bold;
+cursor:pointer;
+margin-top:15px;
 }
 
 /* SECTION */
+
 .section{
-  padding:70px 20px;
-  max-width:1100px;
-  margin:auto;
+padding:70px 20px;
+max-width:1150px;
+margin:auto;
 }
 
 .section h2{
-  text-align:center;
-  color:#8b6b4f;
-  margin-bottom:40px;
+text-align:center;
+margin-bottom:40px;
+color:#8b6b4f;
 }
 
 /* GRID */
+
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
 }
 
 /* CARD */
+
 .card{
-  background:white;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
 
 .card img{
-  width:100%;
-  height:230px;
-  object-fit:cover;
+width:100%;
+height:240px;
+object-fit:cover;
 }
 
 .card-content{
-  padding:15px;
+padding:18px;
 }
 
 .price{
-  color:#8b6b4f;
-  font-weight:bold;
+font-size:24px;
+font-weight:bold;
+color:#8b6b4f;
+}
+
+.reserve-fee{
+font-weight:bold;
+color:#b58b61;
 }
 
 /* GALLERY */
+
 .gallery img{
-  width:100%;
-  border-radius:15px;
-  height:180px;
-  object-fit:cover;
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:18px;
 }
 
 /* REVIEWS */
+
 .review-img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-  border-radius:15px;
+width:100%;
+height:200px;
+object-fit:cover;
 }
 
 /* CONTACT */
-.contact{
-  background:#fff;
-  padding:40px;
-  border-radius:20px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.08);
-  max-width:700px;
-  margin:auto;
+
+.contact-box{
+background:white;
+padding:35px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+max-width:700px;
+margin:auto;
 }
 
-input, textarea{
-  width:100%;
-  padding:12px;
-  margin:8px 0;
-  border:1px solid #ddd;
-  border-radius:10px;
+input,textarea{
+width:100%;
+padding:14px;
+margin:10px 0;
+border:1px solid #ddd;
+border-radius:12px;
 }
 
 /* MODAL */
+
 #modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.6);
-  align-items:center;
-  justify-content:center;
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.6);
+align-items:center;
+justify-content:center;
+z-index:9999;
 }
 
 .modal-box{
-  background:white;
-  padding:25px;
-  border-radius:20px;
-  width:90%;
-  max-width:450px;
+background:white;
+padding:30px;
+border-radius:20px;
+width:90%;
+max-width:450px;
 }
 
+/* FOOTER */
+
 footer{
-  background:#6d533d;
-  color:white;
-  text-align:center;
-  padding:25px;
+background:#6d533d;
+color:white;
+padding:30px;
+text-align:center;
+margin-top:40px;
 }
+
 </style>
 </head>
 
@@ -191,57 +212,89 @@ footer{
 
 <header>
 <h1>Royal Blossom Puppies</h1>
+
 <nav>
 <a href="#home">Home</a>
 <a href="#puppies">Puppies</a>
 <a href="#gallery">Gallery</a>
 <a href="#reviews">Reviews</a>
 <a href="#contact">Contact</a>
+<a href="admin.html">Admin</a>
 </nav>
 </header>
 
 <!-- HERO -->
+
 <section class="hero" id="home">
 <div class="hero-content">
-<h2>Luxury Puppies With Love</h2>
+<h2>Luxury Puppies Raised With Love</h2>
 <p>Maltese • Maltipoo • Pomeranian</p>
-<button class="btn">View Puppies</button>
+
+<button class="btn">
+View Available Puppies
+</button>
 </div>
 </section>
 
 <!-- PUPPIES -->
+
 <section class="section" id="puppies">
+
 <h2>Available Puppies</h2>
 
 <div class="grid">
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=1200&auto=format&fit=crop">
+
 <div class="card-content">
-<h3>Maltese Bella</h3>
+<h3>Bella (Maltese)</h3>
+
 <p class="price">$1000</p>
-<p>Reservation Fee: $250</p>
-<button class="btn" onclick="openModal('Bella')">Reserve</button>
+
+<p class="reserve-fee">
+Reservation Fee: $250
+</p>
+
+<button class="btn" onclick="reserve('Bella')">
+Reserve Now
+</button>
 </div>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1200&auto=format&fit=crop">
+
 <div class="card-content">
-<h3>Maltipoo Teddy</h3>
+<h3>Teddy (Maltipoo)</h3>
+
 <p class="price">$800</p>
-<p>Reservation Fee: $250</p>
-<button class="btn" onclick="openModal('Teddy')">Reserve</button>
+
+<p class="reserve-fee">
+Reservation Fee: $250
+</p>
+
+<button class="btn" onclick="reserve('Teddy')">
+Reserve Now
+</button>
 </div>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=1200&auto=format&fit=crop">
+
 <div class="card-content">
-<h3>Pomeranian Snow</h3>
+<h3>Snow (Pomeranian)</h3>
+
 <p class="price">$600</p>
-<p>Reservation Fee: $250</p>
-<button class="btn" onclick="openModal('Snow')">Reserve</button>
+
+<p class="reserve-fee">
+Reservation Fee: $250
+</p>
+
+<button class="btn" onclick="reserve('Snow')">
+Reserve Now
+</button>
 </div>
 </div>
 
@@ -249,76 +302,114 @@ footer{
 </section>
 
 <!-- GALLERY -->
+
 <section class="section" id="gallery">
-<h2>Gallery</h2>
+
+<h2>Luxury Puppy Gallery</h2>
 
 <div class="grid gallery">
-<img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?q=80&w=1200&auto=format&fit=crop">
-<img src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?q=80&w=1200&auto=format&fit=crop">
-<img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=1200&auto=format&fit=crop">
+
 <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?q=80&w=1200&auto=format&fit=crop">
+
 </div>
+
 </section>
 
 <!-- REVIEWS -->
+
 <section class="section" id="reviews">
+
 <h2>Happy Families</h2>
 
 <div class="grid">
 
 <div class="card">
 <img class="review-img" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200&auto=format&fit=crop">
+
 <div class="card-content">
-<h3>Emily R. (New York)</h3>
-<p>"Our Maltipoo arrived healthy and happy. The process felt very professional and safe."</p>
+<h3>Emily R. • New York</h3>
+
+<p>
+"Our Maltipoo arrived healthy, playful and extremely affectionate. The process felt safe and professional from beginning to end."
+</p>
 </div>
 </div>
 
 <div class="card">
 <img class="review-img" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop">
+
 <div class="card-content">
-<h3>James T. (California)</h3>
-<p>"Everything was smooth and transparent. Our puppy is perfect."</p>
+<h3>James T. • California</h3>
+
+<p>
+"Beautiful puppy and excellent communication throughout the adoption process. Highly recommended breeder."
+</p>
 </div>
 </div>
 
 <div class="card">
 <img class="review-img" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=1200&auto=format&fit=crop">
+
 <div class="card-content">
-<h3>Sophia L. (Texas)</h3>
-<p>"Great communication and beautiful puppy. Highly recommended."</p>
+<h3>Sophia L. • Texas</h3>
+
+<p>
+"We received videos, updates and guidance before delivery. Everything exceeded expectations."
+</p>
 </div>
 </div>
 
 <div class="card">
 <img class="review-img" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200&auto=format&fit=crop">
+
 <div class="card-content">
-<h3>Michael B. (Florida)</h3>
-<p>"Very professional breeder. Puppy arrived in perfect condition."</p>
+<h3>Michael B. • Florida</h3>
+
+<p>
+"The puppy arrived with vaccination details and care instructions. Very professional experience."
+</p>
 </div>
 </div>
 
 <div class="card">
 <img class="review-img" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop">
+
 <div class="card-content">
-<h3>Olivia K. (Chicago)</h3>
-<p>"Our family is in love with our new puppy."</p>
+<h3>Olivia K. • Chicago</h3>
+
+<p>
+"Our family completely fell in love with our puppy. Very smooth adoption process."
+</p>
 </div>
 </div>
 
 <div class="card">
 <img class="review-img" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop">
+
 <div class="card-content">
-<h3>Daniel P. (Seattle)</h3>
-<p>"Very smooth adoption experience from start to finish."</p>
+<h3>Daniel P. • Seattle</h3>
+
+<p>
+"Excellent breeder with amazing communication and healthy beautiful puppies."
+</p>
 </div>
 </div>
 
 <div class="card">
 <img class="review-img" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?q=80&w=1200&auto=format&fit=crop">
+
 <div class="card-content">
-<h3>Sarah M. (Miami)</h3>
-<p>"Everything exceeded expectations. Highly trusted service."</p>
+<h3>Sarah M. • Miami</h3>
+
+<p>
+"Our puppy adapted quickly and became part of our family immediately. Wonderful experience."
+</p>
 </div>
 </div>
 
@@ -326,47 +417,119 @@ footer{
 </section>
 
 <!-- CONTACT -->
-<section class="section" id="contact">
-<h2>Contact Us</h2>
 
-<div class="contact">
-<form>
-<input type="text" placeholder="Full Name" required>
-<input type="email" placeholder="Email" required>
-<textarea rows="5" placeholder="Message"></textarea>
-<button class="btn">Send Message</button>
+<section class="section" id="contact">
+
+<h2>Reservation Form</h2>
+
+<div class="contact-box">
+
+<form id="form">
+
+<input type="text" id="name" placeholder="Full Name" required>
+
+<input type="email" id="email" placeholder="Email Address" required>
+
+<input type="text" id="puppy" placeholder="Selected Puppy">
+
+<textarea id="message" rows="5" placeholder="Message"></textarea>
+
+<button class="btn" type="submit">
+Submit Reservation
+</button>
+
 </form>
+
 </div>
+
 </section>
 
 <!-- MODAL -->
+
 <div id="modal">
+
 <div class="modal-box">
-<h3>Reserve Puppy</h3>
-<p id="selected"></p>
-<p><b>Reservation Fee: $250</b></p>
 
-<input placeholder="Full Name">
-<input placeholder="Email">
+<h2>Reserve Puppy</h2>
 
-<button class="btn">Proceed to Checkout</button>
-<button onclick="closeModal()" class="btn">Close</button>
+<p id="selectedPuppy"></p>
+
+<p>
+<b>Reservation Fee: $250</b>
+</p>
+
+<button class="btn">
+Proceed To Secure Checkout
+</button>
+
+<button class="btn" onclick="closeModal()">
+Cancel
+</button>
+
 </div>
+
 </div>
 
 <script>
-function openModal(name){
+
+function reserve(name){
+document.getElementById("puppy").value=name;
+document.getElementById("selectedPuppy").innerText="Selected Puppy: "+name;
 document.getElementById("modal").style.display="flex";
-document.getElementById("selected").innerText="Selected Puppy: "+name;
 }
 
 function closeModal(){
 document.getElementById("modal").style.display="none";
 }
+
+/* SUPABASE */
+
+const supabaseUrl="YOUR_SUPABASE_URL";
+const supabaseKey="YOUR_SUPABASE_KEY";
+
+const client=supabase.createClient(
+supabaseUrl,
+supabaseKey
+);
+
+document
+.getElementById("form")
+.addEventListener("submit",async(e)=>{
+
+e.preventDefault();
+
+await client
+.from("reservations")
+.insert([{
+
+name:
+document.getElementById("name").value,
+
+email:
+document.getElementById("email").value,
+
+puppy:
+document.getElementById("puppy").value,
+
+message:
+document.getElementById("message").value
+
+}]);
+
+alert("Reservation Submitted Successfully!");
+
+document.getElementById("form").reset();
+
+});
+
 </script>
 
 <footer>
-<p>© 2023 Royal Blossom Puppies</p>
+
+<p>
+© 2023 Royal Blossom Puppies
+</p>
+
 </footer>
 
 </body>
