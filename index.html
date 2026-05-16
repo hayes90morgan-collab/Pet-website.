@@ -1,47 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Royal Blossom Puppies | Premium Boutique</title>
+<title>Royal Blossom Puppies | Premium Maltese Boutique</title>
 
 <style>
-body{
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
 font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#f7f1ea,#fff);
+background:#faf6f1;
 color:#333;
+line-height:1.6;
 }
 
 /* HEADER */
+
 header{
+background:rgba(255,255,255,0.95);
+backdrop-filter:blur(10px);
+padding:18px 30px;
+position:sticky;
+top:0;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 30px;
-background:white;
-position:sticky;
-top:0;
-box-shadow:0 4px 20px rgba(0,0,0,0.05);
+box-shadow:0 2px 15px rgba(0,0,0,0.05);
+z-index:999;
 }
 
-header h1{color:#8b6b4f;}
+header h1{
+font-size:26px;
+color:#8b6b4f;
+}
 
 nav a{
 margin:0 12px;
 text-decoration:none;
 color:#555;
 font-weight:bold;
+transition:.3s;
+}
+
+nav a:hover{
+color:#b58b61;
 }
 
 /* HERO */
+
 .hero{
-height:85vh;
+height:90vh;
+background:url('https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1600&auto=format&fit=crop') center/cover;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-background:url('https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1600&auto=format&fit=crop') center/cover;
 position:relative;
 color:white;
 }
@@ -53,186 +73,340 @@ inset:0;
 background:rgba(0,0,0,0.5);
 }
 
-.hero-content{position:relative;z-index:2;}
+.hero-content{
+position:relative;
+z-index:2;
+max-width:700px;
+padding:20px;
+}
 
-.hero h2{font-size:52px;margin:0;}
+.hero h2{
+font-size:58px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:21px;
+margin-bottom:20px;
+}
+
+/* BUTTON */
 
 .btn{
 background:linear-gradient(135deg,#b58b61,#d6b48d);
 border:none;
 padding:14px 26px;
-border-radius:30px;
+border-radius:35px;
 color:white;
 font-weight:bold;
 cursor:pointer;
-transition:0.3s;
-margin:5px;
+transition:.3s;
+box-shadow:0 8px 20px rgba(181,139,97,0.3);
 }
 
-.btn:hover{transform:scale(1.05);}
+.btn:hover{
+transform:translateY(-3px);
+}
 
-/* GRID */
+/* SECTION */
+
 .section{
-padding:70px 20px;
+padding:85px 20px;
 max-width:1200px;
 margin:auto;
 }
 
+.section h2{
+text-align:center;
+margin-bottom:50px;
+font-size:38px;
+color:#8b6b4f;
+}
+
+/* GRID */
+
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+gap:30px;
 }
+
+/* CARD */
 
 .card{
 background:white;
-border-radius:18px;
+border-radius:22px;
 overflow:hidden;
-box-shadow:0 8px 25px rgba(0,0,0,0.08);
-transition:0.3s;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transition:.4s;
 }
 
-.card:hover{transform:translateY(-5px);}
+.card:hover{
+transform:translateY(-8px);
+}
 
 .card img{
 width:100%;
-height:240px;
+height:300px;
 object-fit:cover;
 }
 
-.card-content{padding:16px;}
+.card-content{
+padding:20px;
+}
 
 .price{
-color:#8b6b4f;
-font-size:22px;
+font-size:24px;
 font-weight:bold;
+color:#8b6b4f;
+margin:10px 0;
+}
+
+.reserve-fee{
+font-weight:bold;
+color:#b58b61;
+margin-bottom:15px;
+}
+
+/* GALLERY */
+
+.gallery img{
+width:100%;
+height:260px;
+object-fit:cover;
+border-radius:20px;
+transition:.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.03);
+}
+
+/* REVIEWS */
+
+.review-img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+/* CONTACT */
+
+.contact-box{
+background:white;
+padding:40px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+max-width:760px;
+margin:auto;
+}
+
+input,textarea{
+width:100%;
+padding:16px;
+margin:12px 0;
+border:1px solid #ddd;
+border-radius:14px;
+font-size:15px;
+outline:none;
+}
+
+/* TRACKING */
+
+.tracking-box{
+background:white;
+padding:35px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+max-width:700px;
+margin:auto;
+text-align:center;
+}
+
+.status{
+display:inline-block;
+padding:10px 20px;
+background:#fff3e8;
+color:#b58b61;
+border-radius:30px;
+font-weight:bold;
+margin-top:15px;
 }
 
 /* MODAL */
+
 #modal{
 display:none;
 position:fixed;
 inset:0;
-background:rgba(0,0,0,0.6);
+background:rgba(0,0,0,0.65);
 align-items:center;
 justify-content:center;
+z-index:9999;
+padding:20px;
 }
 
 .modal-box{
 background:white;
-padding:25px;
-border-radius:20px;
-width:90%;
-max-width:420px;
+padding:35px;
+border-radius:25px;
+width:100%;
+max-width:480px;
 }
 
 /* WHATSAPP */
+
 .whatsapp{
 position:fixed;
 bottom:20px;
 right:20px;
 background:#25D366;
 color:white;
-padding:12px 16px;
+padding:14px 18px;
 border-radius:50px;
 text-decoration:none;
 font-weight:bold;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+z-index:999;
 }
+
+/* FOOTER */
+
+footer{
+background:#6d533d;
+color:white;
+padding:40px 20px;
+text-align:center;
+margin-top:50px;
+}
+
+@media(max-width:768px){
+
+.hero h2{
+font-size:40px;
+}
+
+nav{
+display:none;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
+
 <h1>Royal Blossom Puppies</h1>
+
 <nav>
+<a href="#home">Home</a>
 <a href="#puppies">Puppies</a>
+<a href="#gallery">Gallery</a>
+<a href="#reviews">Reviews</a>
+<a href="#tracking">Tracking</a>
+<a href="#contact">Contact</a>
 <a href="admin.html">Admin</a>
 </nav>
+
 </header>
 
-<section class="hero">
+<!-- HERO -->
+
+<section class="hero" id="home">
+
 <div class="hero-content">
-<h2>Luxury Puppies Raised With Love</h2>
-<p>Maltese • Maltipoo • Pomeranian</p>
+
+<h2>Luxury Maltese Puppies Raised With Love</h2>
+
+<p>
+Healthy • Beautiful • Vet Checked
+</p>
+
+<button class="btn">
+View Available Puppies
+</button>
+
 </div>
+
 </section>
 
+<!-- PUPPIES -->
+
 <section class="section" id="puppies">
-<h2 style="text-align:center;">Available Puppies</h2>
+
+<h2>Available Maltese Puppies</h2>
 
 <div class="grid">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e">
+
+<img src="Screenshot_20260514-234228_InstaPro2  .jpg">
+
 <div class="card-content">
-<h3>Bella</h3>
+
+<h3>Luna (Maltese)</h3>
+
 <p class="price">$1000</p>
-<button class="btn" onclick="openModal('Bella')">Reserve</button>
+
+<p class="reserve-fee">
+Reservation Fee: $300
+</p>
+
+<button class="btn" onclick="reserve('Luna')">
+Reserve Now
+</button>
+
 </div>
+
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8">
+
+<img src="Screenshot_20260514-234046_InstaPro2  .jpg">
+
 <div class="card-content">
-<h3>Teddy</h3>
-<p class="price">$800</p>
-<button class="btn" onclick="openModal('Teddy')">Reserve</button>
-</div>
+
+<h3>Rex (Maltese)</h3>
+
+<p class="price">$1000</p>
+
+<p class="reserve-fee">
+Reservation Fee: $300
+</p>
+
+<button class="btn" onclick="reserve('Rex')">
+Reserve Now
+</button>
+
 </div>
 
 </div>
+
+<div class="card">
+
+<img src="Screenshot_20260514-232111_InstaPro2  .jpg">
+
+<div class="card-content">
+
+<h3>Pressa (Maltese)</h3>
+
+<p class="price">$1000</p>
+
+<p class="reserve-fee">
+Reservation Fee: $300
+</p>
+
+<button class="btn" onclick="reserve('Pressa')">
+Reserve Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
-
-<!-- MODAL -->
-<div id="modal">
-<div class="modal-box">
-<h2>Reserve Puppy</h2>
-<p id="selected"></p>
-
-<input id="name" placeholder="Your Name"><br><br>
-<input id="email" placeholder="Your Email"><br><br>
-
-<button class="btn" onclick="payNow()">Proceed to Payment</button>
-<button class="btn" onclick="submitReservation()">Submit</button>
-<button class="btn" onclick="closeModal()">Close</button>
-</div>
-</div>
-
-<a class="whatsapp" href="https://wa.me/YOURNUMBER">💬 WhatsApp</a>
-
-<script>
-let selectedPuppy="";
-
-function openModal(name){
-selectedPuppy=name;
-document.getElementById("selected").innerText="Puppy: "+name;
-document.getElementById("modal").style.display="flex";
-}
-
-function closeModal(){
-document.getElementById("modal").style.display="none";
-}
-
-function payNow(){
-window.location.href="https://paypal.me/YOURUSERNAME/250";
-}
-
-async function submitReservation(){
-
-const name=document.getElementById("name").value;
-const email=document.getElementById("email").value;
-
-await fetch("/api/adoption",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({name,email,puppy:selectedPuppy})
-});
-
-alert("Reservation Sent!");
-closeModal();
-}
-</script>
-
-</body>
-</html>
